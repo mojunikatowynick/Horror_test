@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://g8uv6618qomu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etyqp"]
+metallic = 1.0
+roughness = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_d26ew"]
+material = SubResource("StandardMaterial3D_etyqp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yodro"]
+albedo_color = Color(0.93408, 0.93408, 0.93408, 1)
+roughness = 0.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_ca8xb"]
+material = SubResource("StandardMaterial3D_yodro")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slpta"]
+albedo_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+roughness = 0.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_0wv4p"]
+material = SubResource("StandardMaterial3D_slpta")
+
+[node name="GuideSpheres" type="Node3D"]
+
+[node name="Reflective" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+mesh = SubResource("SphereMesh_d26ew")
+
+[node name="White" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("SphereMesh_ca8xb")
+
+[node name="Black" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_0wv4p")

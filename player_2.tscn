@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://o1iw1725wcwd"]
+
+[ext_resource type="Script" uid="uid://djjnis0ke72s8" path="res://player_2.gd" id="1_wkcja"]
+[ext_resource type="Script" uid="uid://58kc4b5a81im" path="res://interaction_ray.gd" id="2_8xjnt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uk8bg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkcja"]
+albedo_color = Color(0.545718, 0.354204, 0.387647, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wkcja"]
+material = SubResource("StandardMaterial3D_wkcja")
+
+[node name="PlayerTopDown" type="CharacterBody3D"]
+script = ExtResource("1_wkcja")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_uk8bg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_wkcja")
+
+[node name="InteractionRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41921, 0)
+target_position = Vector3(0, 0, -2)
+script = ExtResource("2_8xjnt")
