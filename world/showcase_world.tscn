@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://btw4o3eelwc3d"]
+
+[ext_resource type="Environment" uid="uid://cc2sjq4p2eric" path="res://world/showcase_world.tres" id="1_je76i"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_je76i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_je76i"]
+albedo_color = Color(0.7137255, 0.40392157, 0.40392157, 1)
+
+[node name="Node3D" type="WorldEnvironment"]
+environment = ExtResource("1_je76i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.01825127, 0.7255052, -0.6879748, -0.5109124, 0.58470196, 0.6301525, 0.859439, 0.36299592, 0.35999814, -2.5439956, 0, 0)
+light_color = Color(0.20450664, 0.57443964, 0.69561374, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_je76i")
+surface_material_override/0 = SubResource("StandardMaterial3D_je76i")

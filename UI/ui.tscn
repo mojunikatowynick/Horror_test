@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://rb0pfjjlbmr1"]
+
+[ext_resource type="Script" uid="uid://j1bi5pr5my5" path="res://UI/ui.gd" id="1_2fwl4"]
+[ext_resource type="Environment" uid="uid://cc2sjq4p2eric" path="res://world/showcase_world.tres" id="2_dajm1"]
+
+[sub_resource type="World3D" id="World3D_e6gg6"]
+environment = ExtResource("2_dajm1")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2fwl4"]
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("pause_menu", "show_menu", "show_item_mesh_instat_place")]
+process_mode = 3
+script = ExtResource("1_2fwl4")
+pause_menu = NodePath("PauseMenu")
+show_menu = NodePath("ItemShowSub")
+show_item_mesh_instat_place = NodePath("ItemShowSub/SubViewportContainer/SubViewport/Camera3D/MeshHolder")
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.44705883, 0.44705883, 0.54901963, 0.23921569)
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -11.5
+offset_right = 25.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PauseMenu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemShowSub" type="Control" parent="."]
+visible = false
+light_mask = 0
+visibility_layer = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="ItemShowSub"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_shrink = 5
+
+[node name="SubViewport" type="SubViewport" parent="ItemShowSub/SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_e6gg6")
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(400, 300)
+render_target_update_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="ItemShowSub/SubViewportContainer/SubViewport"]
+
+[node name="MeshHolder" type="Node3D" parent="ItemShowSub/SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.9615974)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ItemShowSub/SubViewportContainer/SubViewport/Camera3D/MeshHolder"]
+visible = false
+mesh = SubResource("CapsuleMesh_2fwl4")
+skeleton = NodePath("../..")

@@ -8,11 +8,11 @@ extends Node3D
 @onready var roof := $house/CSGCombiner3D/roof
 @onready var outsidewall_1 := $house/outsidewall1
 @onready var outsidewall_2 := $house/outsidewall2
-
 @export var camera_izo : Camera3D
 
-func _ready() -> void:
+var player: CharacterBody3D
 
+func _ready() -> void:
 	match Controller_type:
 		"FPS contreoller":
 			instance = player_fps.instantiate()
@@ -27,3 +27,8 @@ func _ready() -> void:
 			roof.visible = false
 			outsidewall_1.visible = false
 			outsidewall_2.visible = false
+
+	player = player_parent.get_child(0)
+
+func _physics_process(_delta: float) -> void:
+	camera_izo.look_at(player.global_position)

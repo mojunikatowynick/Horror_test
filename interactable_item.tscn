@@ -1,23 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://d20lmyp3s4scw"]
+[gd_scene load_steps=5 format=3 uid="uid://d20lmyp3s4scw"]
 
 [ext_resource type="Script" uid="uid://cb8hvdap0cmnd" path="res://interactable_item.gd" id="1_h64jf"]
 [ext_resource type="PackedScene" uid="uid://crbf7712dv3mc" path="res://interactive_component.tscn" id="1_wfs5w"]
+[ext_resource type="PackedScene" uid="uid://ql1is2gs1cl2" path="res://Graphic/mesh.tscn" id="2_wo7e3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uvdoe"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_wfs5w"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h64jf"]
-albedo_color = Color(0.994962, 0, 0.254732, 1)
-
-[node name="Interactable_item" type="StaticBody3D"]
+[node name="Interactable_item" type="StaticBody3D" node_paths=PackedStringArray("_mesh")]
 script = ExtResource("1_h64jf")
+_mesh = NodePath("Mesh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_uvdoe")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_wfs5w")
-surface_material_override/0 = SubResource("StandardMaterial3D_h64jf")
+[node name="Mesh" parent="." instance=ExtResource("2_wo7e3")]
 
 [node name="Interactive_component" parent="." instance=ExtResource("1_wfs5w")]
