@@ -7,10 +7,12 @@ class_name InteractionComponent extends Node
 @export var new_icon: Texture2D
 @export var interactable_parent: Node3D
 
-
 var can_interact: bool = true
 var parent: Node3D
 var highlight_material := preload("res://material/Interactable_highlights.tres")
+var interact_promt := preload("res://UI/interact_prompt.tscn")
+
+var promt : Sprite3D
 
 func _ready() -> void:
 	parent = get_parent()
@@ -38,11 +40,16 @@ func set_default_mesh() -> void:
 func in_range() -> void:
 	mesh.material_overlay = highlight_material
 	MessageBus.interaction_focused.emit(context, new_icon, override_icon)
+	promt = interact_promt.instantiate()
+	promt.position.y += 1
+	owner.add_child(promt)
 
 func not_in_range() -> void:
 	mesh.material_overlay = null
 	MessageBus.interaction_unfocused.emit()
 	can_interact = false
+	if promt != null:
+		promt.queue_free()
 
 func interact() -> void:
 	parent.interact()

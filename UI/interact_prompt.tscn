@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhvx03s71otdp"]
+
+[ext_resource type="Texture2D" uid="uid://bskbqii7jv2ee" path="res://UI/Icons/tile_0359.png" id="1_8ks2l"]
+
+[node name="InteractPrompt" type="Sprite3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+billboard = 1
+texture_filter = 0
+render_priority = 20
+texture = ExtResource("1_8ks2l")
