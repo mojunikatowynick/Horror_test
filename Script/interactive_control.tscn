@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfxc7gicqu3if"]
+
+[ext_resource type="Script" uid="uid://cqxirdkfs8iis" path="res://Script/interactive_control.gd" id="1_rnnyt"]
+
+[node name="Interactive_control" type="Node"]
+script = ExtResource("1_rnnyt")

@@ -33,6 +33,8 @@ func resume() -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_is_paused = false
 	show_menu.visible = false
+	for child in show_item_mesh_instat_place.get_children():
+		child.queue_free()
 
 func _show_item(_show_mesh: String) -> void:
 	pause()
