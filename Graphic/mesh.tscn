@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ql1is2gs1cl2"]
-
-[ext_resource type="PackedScene" uid="uid://cfxc7gicqu3if" path="res://Script/interactive_control.tscn" id="1_ot8y4"]
+[gd_scene load_steps=3 format=3 uid="uid://ql1is2gs1cl2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8igvg"]
 
@@ -14,5 +12,3 @@ stencil_outline_thickness = 0.02
 [node name="Mesh" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_8igvg")
 surface_material_override/0 = SubResource("StandardMaterial3D_ot8y4")
-
-[node name="Interactive_control" parent="." instance=ExtResource("1_ot8y4")]
