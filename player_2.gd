@@ -1,11 +1,14 @@
 extends CharacterBody3D
 
 
-const SPEED := 5
+const SPEED := 2
 @export var friction := 0.2
 @export var acceleration := 0.1
 @export var deceleration: float = 0.25
 const JUMP_VELOCITY = 4.5
+
+func _ready() -> void:
+	Global.Player = self
 
 func _physics_process(delta : float) -> void:
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Back")

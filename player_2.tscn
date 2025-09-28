@@ -4,12 +4,16 @@
 [ext_resource type="Script" uid="uid://58kc4b5a81im" path="res://interaction_ray.gd" id="2_8xjnt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uk8bg"]
+radius = 0.3
+height = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkcja"]
 albedo_color = Color(0.545718, 0.354204, 0.387647, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wkcja"]
 material = SubResource("StandardMaterial3D_wkcja")
+radius = 0.3
+height = 1.5
 
 [node name="PlayerTopDown" type="CharacterBody3D"]
 script = ExtResource("1_wkcja")
@@ -23,6 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_wkcja")
 
 [node name="InteractionRay" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41921, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3289046, 0)
 target_position = Vector3(0, 0, -2)
 script = ExtResource("2_8xjnt")

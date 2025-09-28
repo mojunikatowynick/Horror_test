@@ -18,6 +18,7 @@ func _ready() -> void:
 	parent = get_parent()
 	connect_parent()
 	set_default_mesh()
+	print(parent)
 
 func connect_parent() -> void:
 	#creating signals and connectinh them to parent
