@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ql1is2gs1cl2"]
+[gd_scene load_steps=5 format=3 uid="uid://ql1is2gs1cl2"]
+
+[ext_resource type="Script" uid="uid://k4xhw3jrdsm5" path="res://Graphic/area_3d.gd" id="1_ot8y4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_8igvg"]
 
@@ -9,6 +11,18 @@ stencil_reference = 18
 stencil_color = Color(1, 0, 0, 1)
 stencil_outline_thickness = 0.02
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_27wap"]
+
 [node name="Mesh" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_8igvg")
 surface_material_override/0 = SubResource("StandardMaterial3D_ot8y4")
+
+[node name="Area3D" type="Area3D" parent="."]
+disable_mode = 2
+script = ExtResource("1_ot8y4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("BoxShape3D_27wap")
+
+[connection signal="mouse_entered" from="Area3D" to="Area3D" method="_on_mouse_entered"]

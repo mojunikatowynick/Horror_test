@@ -127,7 +127,10 @@ light_bake_mode = 1
 shadow_enabled = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="Light/DirectionalLight3D"]
-transform = Transform3D(-0.3727992, -0.07149089, 0.925154, 0.32476288, 0.9239153, 0.20226131, -0.8692237, 0.37585852, -0.32121727, -1.700491, 0.6397316, -4.4948473)
+transform = Transform3D(-0.3727992, -0.07149089, 0.925154, 0.32476288, 0.9239153, 0.20226131, -0.8692237, 0.37585852, -0.32121727, -1.5495298, 0.50822127, -4.1428633)
+
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="Light/DirectionalLight3D"]
+transform = Transform3D(-0.3727992, -0.07149089, 0.925154, 0.32476288, 0.9239153, 0.20226131, -0.8692237, 0.37585852, -0.32121727, -3.7421045, 2.4182756, -9.2551)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Light"]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.2926345, 1.6737304, -0.045582414)
@@ -136,7 +139,7 @@ mesh = SubResource("PlaneMesh_d6qko")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43220234, 2.4322069, 0.43971515)
-light_color = Color(0.85894084, 0.68335027, 0.336697, 1)
+light_color = Color(0.7074838, 0.724242, 0.6269153, 1)
 light_energy = 1.825
 shadow_enabled = true
 
