@@ -6,9 +6,10 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uvdoe"]
 
-[node name="Interactable_item" type="StaticBody3D" node_paths=PackedStringArray("_mesh")]
+[node name="Interactable_item" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+process_mode = 3
 script = ExtResource("1_h64jf")
-_mesh = NodePath("Mesh")
+mesh = NodePath("Mesh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_uvdoe")
@@ -16,3 +17,5 @@ shape = SubResource("BoxShape3D_uvdoe")
 [node name="Mesh" parent="." instance=ExtResource("2_wo7e3")]
 
 [node name="Interactive_component" parent="." instance=ExtResource("1_wfs5w")]
+
+[editable path="Mesh"]

@@ -44,3 +44,5 @@ func _show_interaced_item(_show_mesh: String) -> void:
 	show_menu.visible = true
 	var controller_instance : = interactive_item_control.instantiate()
 	mesh_instance.add_child(controller_instance)
+	if "activate" in mesh_instance:
+		mesh_instance.activate()
